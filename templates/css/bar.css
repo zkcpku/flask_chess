@@ -1,0 +1,53 @@
+table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+table { padding: 0px; word-break: initial; }
+table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+.Bar{
+	min-width:298px;
+	border-radius:0px;
+	box-shadow:0 6.4px 14.4px 0 rgba(0,0,0,.132),0 1.2px 3.6px 0 rgba(0,0,0,.108);
+	width:calc(16% + 60px);
+	padding:20px 6px 20px 24px;
+	position:fixed;
+	top:10%;
+	right:10%;
+	overflow-x: hidden; /*x轴禁止滚动*/
+	overflow-y: scroll;
+	background:rgba(255,255,255,.8);}
+.Bar::-webkit-scrollbar {
+	display: none;
+	} /*隐藏掉比较难看的拖动条*/
+.Content{
+	top: 10%;
+	left:10%;
+	position: absolute;
+}
+
+.webName{
+	user-select:none;
+	font-family:"Segoe UI","Segoe UI Web (West European)","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+	-webkit-font-smoothing:antialiased;
+	font-size:20px;
+	font-weight:600;
+	color:rgb(15,10,10);
+	box-sizing:border-box;
+	box-shadow:none;
+	margin-bottom:3px;
+	display:block;
+	overflow-wrap:break-word;
+}
+/*a {
+		text-decoration: none;
+		color:#50D7DE;
+			}*/
+
+#main{border:1px solid gray;width:800px;margin:10px auto;text-align:center;}
+#gzTitle{font-size:40px;text-align:center}

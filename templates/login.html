@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>注册</title></head>
+<script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/bar.css"/>
+<style type=text/css>
+	input{margin-top:10px}
+	.hideIt{display:none}
+	.lightIt{display:inline;color:red}
+</style>
+<body>
+	<div id="main">
+		<div>
+			<br><br><div id="gzTitle">五子棋游戏——登录</div><br><br>
+		<form action="/Login" method="post">
+		用户名 <input type=text name="username" id="username">
+		<span id="checkStatus" class="hideIt">（）</span><br>
+		密 码 <input type=password name="pwd1" id="pwd1"><br>
+		<input type="submit">
+		<br>
+		<a href="/signin">注册</a>
+	</form>
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		$("form").submit(function(){
+			var username=$("#username").val();
+			var pwd1=$("#pwd1").val();
+			if (pwd1.length == 0 || username.length == 0) {
+				alert("请检查输入，不可为空")
+				return false;
+
+			}
+		});
+	</script>
+
+</body>
+</html>

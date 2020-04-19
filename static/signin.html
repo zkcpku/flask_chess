@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>注册</title></head>
+<script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/bar.css"/>
+<style type=text/css>
+	input{margin-top:10px}
+	.hideIt{display:none}
+	.lightIt{display:inline;color:red}
+</style>
+<body>
+	<div id="main">
+		<br><br><div id="gzTitle">五子棋游戏——注册</div><br><br>
+	
+		<form action="/Register" method="post">
+			用户名 <input type=text name="username" id="username">
+			<span id="checkStatus" class="hideIt">（）</span><br>
+			密 码 <input type=password name="pwd1" id="pwd1"><br>
+			确认密码 <input type=password name="pwd2" id="pwd2"><br>
+			<input type="submit">
+		<br>
+		<a href="/login">登录</a>
+		</form>
+
+	</div>
+
+
+	<script type="text/javascript">
+		var username=$("#username").val();
+		$("#username").blur(function(){
+			$.post("/CheckUserID",{username:username},function(rtnSvr){
+				username=$("#username").val();
+				if (username.length != 0) {
+					if(rtnSvr=="1")
+						$("#checkStatus").html("(恭喜您！该网名可以注册！)").removeClass("hideIt").addClass("lightIt");
+					else
+
+						$("#checkStatus").html("(网名已被注册，请重新输入！)").removeClass("hideIt").addClass("lightIt");
+				}
+				else
+					$("#checkStatus").html("").removeClass("hideIt").addClass("lightIt");
+			})
+		});
+		$("form").submit(function(){
+			var pwd1=$("#pwd1").val();
+			var pwd2=$("#pwd2").val();
+			if (pwd1!=pwd2){
+				alert("两次密码输入不一致!");
+				return false;
+			}
+			if (pwd1.length == 0 || pwd2.length == 0 || username.length == 0) {
+				alert("请检查输入，不可为空")
+				return false;
+
+			}
+		});
+	</script>
+</body>
+</html>

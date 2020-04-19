@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>五子棋</title></head>
+<script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/bar.css"/>
+<body>
+	<div id='main'>
+		<br><br><div id="gzTitle">五子棋游戏</div><br><br>
+		<div>
+			<p id="nowUser">当前在线人数：1</p>
+		</div>
+		<br>
+		<div>
+			{{registerMsg|safe}}
+		</div>
+		<div>
+			{{startFindPlayer|safe}}
+			
+				<br>
+			<a href="/logout">退出登录<a>
+		</div>
+		<div>
+			<p id="pending"></p>
+		</div>
+		
+
+		<script type="text/javascript">
+			function getUser(){
+				$.get("/getNowUser",function(rtnFromSvr){
+					$("#nowUser").html("当前在线人数：" + rtnFromSvr);
+					// console.log(rtnFromSvr);
+				});
+			}
+			setInterval("getUser()",1000);/*每3秒钟从服务器取得信息*/
+		</script>
+
+
+		{{pendingjs|safe}}
+
+
+		<div>
+			{{qi|safe}}
+		</div>
+	
+	</div>
+
+</body>
+</html>

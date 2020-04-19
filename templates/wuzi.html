@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script type="text/javascript" src="static/js/jquery-3.4.1.min.js" ></script>
+        <!-- <script type="text/javascript" src="../js/json2.js" ></script> -->
+        <script type="text/javascript" src="static/js/rule.js" ></script>
+        <link rel="stylesheet" type="text/css" href="static/css/bar.css"/>
+        <style type="text/css">
+            #background{
+                position: relative;
+                margin: 20px auto;
+                /*background: #EAC000;*/
+            }
+            .chessman{
+                border-radius: 15px;
+                width: 30px;
+                height: 30px;
+                margin: 0 auto;
+            }
+            .white{
+                background-color:white ;
+            }
+            .black{
+                background-color: black;
+            }
+            .grid,.b_grid{
+                float: left;
+            }
+            .message{
+                width: 320px;
+                height: 100px;
+                margin: 0 auto;
+            }
+            #messageContent{
+                width: 320px;
+                height: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='main'>
+            <br><br><div id="gzTitle">五子棋游戏——对战</div><br><br>
+        <div>
+            <p>{{msg|safe}}</p>
+            <br>
+            <p id="turn"></p>
+        </div>
+        <div id="background">
+            <!--<div id="back_grid"></div>-->
+            <div id="chess"></div>
+        </div>
+        <div class="message">
+            <textarea id="messageContent" disabled="disabled" readonly="readonly"></textarea>
+            <!-- <div><input id="message"/> <button onclick="WuZiQi.sendMessage()">发送</button></div> -->
+        </div>
+    </div>
+    </body>
+
+
+        <script type="text/javascript">
+        function checkturn(){
+            $.get("/CheckTurn",function(rtnSvr){
+                $("#turn").html(rtnSvr);
+                // console.log(rtnSvr);
+
+            })
+        }
+        setInterval("checkturn()",500);
+    </script>
+</html>
